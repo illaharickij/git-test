@@ -30,7 +30,7 @@ function addInListener(elements, callBack){
 }
 
 function addInCartHandler(){
-	const product = createProduct();
+	const product ='' ;
 	goodsInCart.push(product);
 	tabWithCounter.dataset.goodsCount=goodsInCart.length;
 }
@@ -66,16 +66,15 @@ function renderGoods() {
 	const div =document.createElement('div');
 	div.dataset.activeTabContent='true';
 	div.className = 'product-items';
-	console.log (div);
+
 	for (let i = 0; i < GOODS.length; i++) {
 		const product = GOODS[i];
-		console.log(product);
 		div.insertAdjacentHTML('beforeend',`
 		<div class="product-item">
 	  			<img src="${product.imgSrc}">
 				<div class="product-list">
 			    	<h3>${product.name}</h3>
-			      	<p class="${product.price}">₽ 300</p>
+			      	<p class="price">₽ ${product.price}</p>
 			      	<button data-add-in-cart="true" class="button">В корзину</button>
 				</div>
 			</div>
@@ -83,36 +82,7 @@ function renderGoods() {
 	
 	}
 	return div;
-	/*return `
-		<div data-active-tab-content="true" class="product-items">
-			<div class="product-item">
-	  			<img src="goods/html.png">
-				<div class="product-list">
-			    	<h3>Уроки по HTML</h3>
-			      	<p class="price">₽ 300</p>
-			      	<button data-add-in-cart="true" class="button">В корзину</button>
-				</div>
-			</div>
-
-			<div class="product-item">
-	  			<img src="goods/css.png">
-				<div class="product-list">
-			    	<h3>Уроки по CSS</h3>
-			      	<p class="price">₽ 150</p>
-			      	<button data-add-in-cart="true" class="button">В корзину</button>
-				</div>
-			</div>
-
-			<div class="product-item">
-	  			<img src="goods/js.png">
-				<div class="product-list">
-			    	<h3>Уроки по JS</h3>
-			      	<p class="price">₽ 260</p>
-			      	<button data-add-in-cart="true" class="button">В корзину</button>
-				</div>
-			</div>
-		</div>
-	`;*/
+	
 }
 function removeActiveTabContent(){
 	const dataActiveTabContent = document.querySelector('[data-active-tab-content="true"]');
